@@ -4,7 +4,7 @@
 $(document).ready(function()
 {
     // var header = $("<header></header>").text("Funny Crashes")
-    var topics = ["funny snowboard fall", "funny bike crashes", " funny skateboard crashes"]
+    var topics = ["snowboard fail", "bike fail", "skateboard fail"]
     var buttons = $("#buttons")
     for (let i = 0; i < topics.length; i++)
     {
