@@ -51,10 +51,10 @@ function giffy(subject)
             }
         })
 }   
-
-// //Onclick of image play gif//
+//Display rating//
+// //Onclick of image play gif second click revert back to still//
 // images.on("click", function (event){
 //     console.log(true) 
 //     })
 
-//onclick of submit, call Giffy for text submitt, displayimages and create new button//
+//onclick of submit, call Giffy for text submit, displayimages and create new button//
