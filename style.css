@@ -1,0 +1,54 @@
+
+header{
+    text-align: center;
+    font-weight: bold;
+    
+}
+
+body{
+background-color: #daa;
+}
+#button-container{
+    background-color: white;
+    border-radius: 15px;
+    align-content: center;
+}
+#buttons{
+    list-style-type: none;
+    
+
+}
+#buttons li{
+    display: inline-block;
+    background: #adf;
+    padding: .25em .5em;
+    margin: .5em;
+    color: #000;
+    font-weight: bold;
+    border-radius: 5px;
+    
+}
+
+#images li{
+    display: inline-block;
+    list-style-type: none;
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    border-radius: 50px;
+}
+
+#images{
+    border-radius: 50px;
+}
+
+#submit-container{
+    background-color: white;
+    font-weight: bold;
+    width: 500px;
+    padding: .25px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* @ media screen */
