@@ -73,4 +73,12 @@ background-color: white;
     margin: 1em auto;
 }
 
+#fail-button{
+    background: #adf;
+    font-weight: bold;
+    border-radius: 25px;
+    border: solid;
+    height: auto
+}
+
 /* @ media screen */
