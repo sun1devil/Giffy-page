@@ -36,32 +36,25 @@ background-color: white;
     border-radius: 25px;
     
 }
-
-#images li{
-    display: inline-block;
-    border: solid
-    list-style-type: none;
-    border-radius: 50%;
-    height: 200px;
-    width: 200px;
-    padding: 1em;
-    margin: 1em;
-}
-
-#images img{
-    margin: 1em;
-    padding: 1em;
-}
-
-#images{
-    border-radius: 50px;
-    margin: 0 0 1em;
-}
-#images li p 
+.image-lists li
 {
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: bold;
+width: 200px;
+height: 300px;
+display: block;
+float: left;
+text-align: center;
+margin-left: 5px;
+}
+.image-lists
+{
+    list-style-type: none;
+    width: 100%;
+}
+
+.image-lists li img
+{
+    width: 200px;
+    height: 200px;
 }
 #submit-container{
     background-color: #daa;

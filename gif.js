@@ -38,6 +38,13 @@ $(document).ready(function()
             buttons.append(button)
             $("#user-text").val("") 
         })
+            $("#user-text").on("keyup", function(event)
+            {
+              if (event.keyCode === 13)
+              {
+                $("#fail-button").submit()
+              }  
+            })  
 })
 var GIFFYAPIKEY = "g1d4gakXFH1MwChmMWq1CzN4xucfdwlc"
 var GIFFYURL = "http://api.giphy.com/v1/gifs/search?api_key=" + GIFFYAPIKEY + "&q="
@@ -46,6 +53,9 @@ function giffy(subject)
     let finalurl = GIFFYURL + subject
     finalurl = encodeURI(finalurl)
     var images = $("#images")
+    var images2 =$("#images2")
+    images.empty()
+    images2.empty()
     $.get(finalurl, function(data)
     {
         // console.log(data["data"][0])
@@ -66,51 +76,18 @@ function giffy(subject)
             stillimage.attr("src", urlstillimage)
             li.append(stillimage)
             li.append(ratingText)
-            images.append(li)
+            if (i < 5)
+            {
+                images.append(li)
+            }
+            else
+            {
+                images2.append(li)
+            }
+            
+            
         }
     })
 }   
 
-{/* <img src="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200_s.gif" data-still="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200_s.gif" data-animate="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200.gif" data-state="still" class="gif">
-  
-
-<img src="https://media2.giphy.com/media/8rFQp4kHXJ0gU/200_s.gif" data-still="https://media2.giphy.com/media/8rFQp4kHXJ0gU/200_s.gif" data-animate="https://media2.giphy.com/media/8rFQp4kHXJ0gU/200.gif" data-state="still" class="gif">
-
-<img src="https://media3.giphy.com/media/W6LbnBigDe4ZG/200_s.gif" data-still="https://media3.giphy.com/media/W6LbnBigDe4ZG/200_s.gif" data-animate="https://media3.giphy.com/media/W6LbnBigDe4ZG/200.gif" data-state="still" class="gif">
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
-  $(".gif").on("click", function() {
-    // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
-    var state = $(this).attr("data-state");
-    // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-    // Then, set the image's data-state to animate
-    // Else set src to the data-still value
-    if (state === "still") {
-      $(this).attr("src", $(this).attr("data-animate"));
-      $(this).attr("data-state", "animate");
-    } else {
-      $(this).attr("src", $(this).attr("data-still"));
-      $(this).attr("data-state", "still");
-    }
-  });
-</script> */}
-
-
-// //onclick of submit, call Giffy for text submit, displayimages and create new button clear textbox//
-// var failButton = $("#fail-button")
-// var userText = $("#user-text")
-// failButton.on("click", function (event)
-// {
-//     topics.push(userText)
-//     buttons.append(userText)
-// })
-
-// {
-//     $("#images").empty()
-//     console.log(event.target.innerHTML)
-//     var subject = event.target.innerHTML
-//     giffy(subject)
-// }
 

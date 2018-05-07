@@ -11,11 +11,12 @@
     <title>GIF Fun</title>
   </head>
   <body>
-      <header>
+      <div class="container">
+    <header>
         <h1>Fun With Fails</h1>
     </header>
 
-    <div class='container' id='button-container'>
+    <div id="button-container">
             <p>Click to see fails:</p>
         <ul id="buttons">           
             
@@ -24,19 +25,25 @@
     <div id='submit-container'>
             <form><br>
                 <br>
-                What do you want to see fail?
+                Enter to add what you want to see fail?
                 <input type="text" id="user-text" name="Add New crash"><br>
 
             </br>
                 <input type="button" id="fail-button" value="FAIL!">
             </form>
     </div>
-    <div>
-        <ul id = "images">
+    <div id="image-list">
+        
+        <div class="col-12"><ul class="image-lists" id = "images">
 
         </ul>
+        </div>
+        <div class="col-12"><ul class="image-lists" id="images2">
+
+        </ul>
+        </div>
     </div>
-  
+    </div>  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script> -->
     <script src= "gif.js"></script> 
