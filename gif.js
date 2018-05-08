@@ -30,8 +30,17 @@ $(document).ready(function()
                 event.target.src = animatedUrl
             else 
                 event.target.src = stillurl
-        }
-        )
+        })    
+        $("#images2").on("click", function(event)
+        {
+            let stillurl = $(event.target).data("still")
+            let animatedUrl = $(event.target).data("animated")
+            let src = event.target.src
+            if (src === stillurl)
+                event.target.src = animatedUrl
+            else 
+                event.target.src = stillurl
+        })
         //listen for click of fail button, create new topic, append "fail"and push to the array. create new button with the users text
     $("#fail-button").on("click", function(event)
         {
@@ -42,7 +51,7 @@ $(document).ready(function()
             buttons.append(button)
             $("#user-text").val("") 
         })
-            //trigger a click of fail when user hits enter
+            //trigger a click of fail button when user hits enter
             $(document).bind('keypress', function(event)
             {
               if (event.keyCode === 13)
