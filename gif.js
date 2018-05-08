@@ -4,7 +4,7 @@
 $(document).ready(function()
 {
     // var header = $("<header></header>").text("Funny Crashes")
-    var topics = ["snowboard fail", "bike fail", "skateboard fail"]
+    var topics = ["snowboard fail", "bike fail", "skateboard fail", "cat fail"]
     var buttons = $("#buttons")
     for (let i = 0; i < topics.length; i++)
     {
@@ -38,13 +38,14 @@ $(document).ready(function()
             buttons.append(button)
             $("#user-text").val("") 
         })
-            $("#user-text").on("keyup", function(event)
+            $(document).bind('keypress', function(event)
             {
               if (event.keyCode === 13)
               {
-                $("#fail-button").submit()
+                event.preventDefault();
+                $("#fail-button").trigger("click");
               }  
-            })  
+        })  
 })
 var GIFFYAPIKEY = "g1d4gakXFH1MwChmMWq1CzN4xucfdwlc"
 var GIFFYURL = "http://api.giphy.com/v1/gifs/search?api_key=" + GIFFYAPIKEY + "&q="
