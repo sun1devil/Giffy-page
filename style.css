@@ -19,6 +19,7 @@ background-color: white;
     border-radius: 15px;
     align-content: center;
     font-weight: bold;
+    padding: 10px;
 }
 #buttons{
     list-style-type: none;
