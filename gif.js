@@ -16,7 +16,7 @@ $(document).ready(function()
     buttons.on("click", function (event)
         {
             $("#images").empty()
-            console.log(event.target.innerHTML)
+            // console.log(event.target.innerHTML)
             var subject = event.target.innerHTML
             giffy(subject)
         })
@@ -80,13 +80,14 @@ function giffy(subject)
         // Run loop 10 times extracting still, animated url's and rating upon retrieval place them in placeholders. 
         for (let i=0; i < 10; i++)
         {
-            console.log(data["data"][i]["images"]["fixed_height_still"]["url"])
-            console.log(data["data"][i]["images"]["fixed_height"]["url"])
-            console.log(data["data"][i]["rating"])
+        //     console.log(data["data"][i]["images"]["fixed_height_still"]["url"])
+        //     console.log(data["data"][i]["images"]["fixed_height"]["url"])
+        //     console.log(data["data"][i]["rating"])
             // based on giphy requirements grab content for each [i] and dynamically place on page based on tags
             let urlstillimage = data["data"][i]["images"]["fixed_height_still"]["url"]
             let urlgifimage = data["data"][i]["images"]["fixed_height"]["url"]
             let rating = data["data"][i]["rating"]
+            // list to place images
             let li = $("<li></li>")
             let stillimage = $("<img></img>")
             stillimage.data("animated", urlgifimage)
