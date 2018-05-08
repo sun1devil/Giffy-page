@@ -15,7 +15,7 @@ body{
 background-color: white;
 }
 #button-container{
-    background-color: #daa;
+    background-color: tan;
     border-radius: 15px;
     align-content: center;
     font-weight: bold;
@@ -55,9 +55,10 @@ margin-left: 5px;
 {
     width: 200px;
     height: 200px;
+    border-radius: 50%
 }
 #submit-container{
-    background-color: #daa;
+    background-color:  tan;
     font-weight: bold;
     width: 500px;
     padding: .25px;

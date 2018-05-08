@@ -1,16 +1,18 @@
 
 
-
+//load page elements before performing functions//
 $(document).ready(function()
 {
-    // var header = $("<header></header>").text("Funny Crashes")
-    var topics = ["snowboard fail", "bike fail", "skateboard fail", "cat fail"]
+//    Declare Variable to populate array and  button id//
+    var topics = ["snowboard fail", "bike fail", "skateboard fail", "cat fail", "baseball fail"]
     var buttons = $("#buttons")
+    // for loop to cover the array and add a button to container// 
     for (let i = 0; i < topics.length; i++)
     {
         let button = $("<li>" + topics[i] + "</li>")
         buttons.append(button)
     }
+    //listener for a click of images and clear content to be ready for next set produced by function giffy.
     buttons.on("click", function (event)
         {
             $("#images").empty()
@@ -18,6 +20,7 @@ $(document).ready(function()
             var subject = event.target.innerHTML
             giffy(subject)
         })
+        // start with static image on click. When image data is still url from API, switch to animated else go back to still.  
     $("#images").on("click", function(event)
         {
             let stillurl = $(event.target).data("still")
@@ -29,6 +32,7 @@ $(document).ready(function()
                 event.target.src = stillurl
         }
         )
+        //listen for click of fail button, create new topic, append "fail"and push to the array. create new button with the users text
     $("#fail-button").on("click", function(event)
         {
             let newTopic = $("#user-text").val()
@@ -38,6 +42,7 @@ $(document).ready(function()
             buttons.append(button)
             $("#user-text").val("") 
         })
+            //trigger a click of fail when user hits enter
             $(document).bind('keypress', function(event)
             {
               if (event.keyCode === 13)
@@ -47,9 +52,12 @@ $(document).ready(function()
               }  
         })  
 })
+//Variables used to store and concatenate URL and API key
 var GIFFYAPIKEY = "g1d4gakXFH1MwChmMWq1CzN4xucfdwlc"
 var GIFFYURL = "http://api.giphy.com/v1/gifs/search?api_key=" + GIFFYAPIKEY + "&q="
+// Primary logic for accessing giphy and pulling in content
 function giffy(subject)
+// initial setup and placeholder for images based on subject text
 {
     let finalurl = GIFFYURL + subject
     finalurl = encodeURI(finalurl)
@@ -60,11 +68,13 @@ function giffy(subject)
     $.get(finalurl, function(data)
     {
         // console.log(data["data"][0])
+        // Run loop 10 times extracting still, animated url's and rating upon retrieval place them in placeholders. 
         for (let i=0; i < 10; i++)
         {
             console.log(data["data"][i]["images"]["fixed_height_still"]["url"])
             console.log(data["data"][i]["images"]["fixed_height"]["url"])
             console.log(data["data"][i]["rating"])
+            // based on giphy requirements grab content for each [i] and dynamically place on page based on tags
             let urlstillimage = data["data"][i]["images"]["fixed_height_still"]["url"]
             let urlgifimage = data["data"][i]["images"]["fixed_height"]["url"]
             let rating = data["data"][i]["rating"]
@@ -77,6 +87,7 @@ function giffy(subject)
             stillimage.attr("src", urlstillimage)
             li.append(stillimage)
             li.append(ratingText)
+            // Seperating images by 5 and appending to 2 different buckets. made my css easier.
             if (i < 5)
             {
                 images.append(li)
